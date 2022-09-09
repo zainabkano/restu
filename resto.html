@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <style>
+     body{
+      overflow-x: hidden;
+      box-sizing: border-box;
+      text-transform: capitalize;
+      transition: all .2s linear;
+
+     }
+     button{
+      background-color:rgb(2, 2, 40) ; 
+      cursor: pointer;
+      display: inline-block;
+      color: white;
+      font-size:15px ;
+      border-radius:10px ;
+      text-align: center;
+      padding-left: 18px;
+      padding-right: 15px;
+      padding-bottom: 8px;
+      padding-top: 8px;
+      /* <button style="margin-bottom: -15px;" class="text-white font-medium rounded-lg text-sm px-12 py-2 text-center mr-4 mb-2 ">Add To Cart</button> */
+
+     }
+     button:hover{
+      background: green;
+      letter-spacing:2px ;
+      overflow: hidden;
+      z-index: 1;
+
+     }
+     header{
+      /* width:100% ;
+      height:100vh ; */
+      background-image:url(gold.webp);
+      background-size: cover;
+      background-position: center;
+     }
+     .con h1{
+      font-size: 60px;
+      font-weight: 400;
+      margin-top: 24px;
+      margin-bottom: 15px;
+      color: rgb(25, 25, 124);
+     }
+     .con p{
+      font-size: 16px;
+      color: whitesmoke;
+      width: 60%;
+     }
+     .con{
+      margin-left: 700px;
+      margin-top: 90px;
+     }
+     section{
+      padding: 2rem ;
+     }
+     .spe-h{
+      text-align: center;
+      font-size: 3rem;
+      padding:1rem ;
+      color: aqua;
+
+     }
+     .specialily .box-con{
+      display:flex;
+      flex-wrap:wrap;
+      gap:1.5rem;
+     }
+     .specialily .box-con .box{
+      flex:1 1 20rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid black;
+      cursor: pointer;
+      border-radius: 5rem;
+      height: 20rem; 
+    
+     }
+      .specialily .box-con .box .img{
+      height: 25rem;
+      width: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: -100%;
+      left: 0;
+     }
+     .specialily .box-con .box .content{
+      text-align: center;
+      background: transparent;
+      padding: 2rem;
+     } 
+     .specialily .box-con .box .content h3{
+      font-size: 2.5rem;
+      color: gray;
+      text-transform: capitalize;
+
+
+     }
+     .specialily .box-con .box .content p{
+      font-size: 1rem;
+      color: gray;
+      padding: 1rem 0;
+
+     }
+     .specialily .box-con .box:hover .img {
+      top: 0;
+
+
+     }
+      .specialily .box-con .box:hover .content{
+        transform: translate(100%);
+
+    }
+    .gallery .box-container{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .gallery .box-container{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      max-width: 90%;
+      margin: auto;
+      
+   }
+   .gallery .box-container .box{
+    flex: 1 1 20rem;
+    height: 20rem;
+    overflow: hidden;
+    position: relative;
+    border-radius:20px ;
+    border: 2px solid white;
+    border-radius: 2rem;
+    box-shadow: 0.5rem 0.2rem rg b(46, 20, 20) ;
+
+   }
+   .gallery .box-container .box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 1;
+    
+
+
+   }
+   .gallery .box-container .box .content {
+    position: absolute;
+    left: 0; 
+    top: -100%;
+    height: 100%;
+    width: 100%;
+    background:rgb(85, 81, 81);
+    
+    text-align: center;
+  
+   }
+   .gallery .box-container .box .content h3{
+    font-size: 2.5rem;
+    color:rgb(26, 217, 26);
+    text-transform: capitalize;
+   }
+   .gallery .box-container .box .content p{
+    font-size: 2.rem;
+    color: white;
+    padding: 1rem 0;
+   }
+   .gallery .box-container .box:hover .content{
+    top:0 ;
+    opacity: 0.8;
+    filter: alpha(opacity=100); 
+
+
+   }
+   .order h1{
+    color: blue;
+    text-transform: capitalize;
+    font-size: 30px;
+    text-align: center;
+    font: bolder;
+    width: 600;
+    
+   }
+   .order h1 span{
+    color: green;
+
+   }
+
+   .order .row{
+    padding: 2rem;
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+   }
+
+   .order .row img{
+    flex: 1 1 15rem;
+    object-fit: cover;
+    border-radius: 5rem;
+   }
+   .order .row form{
+    flex: 1 1 15rem;
+   }
+   @keyframes movedown{
+    0%{
+      transform: translateY(-100px);
+      visibility: visible;
+    }
+    100%{
+      transform: translateY();
+      visibility: visible;
+    }
+   }
+   @keyframes moveright{
+    0%{
+      transform: translateX(-100px);
+      visibility: visible;
+    }
+    100%{
+      transform: translateX(0);
+      visibility: visible;
+    }
+   }
+   @keyframes zoomin{
+    0%{
+      transform: scale(0.5);
+      visibility: visible;
+    }
+    100%{
+      transform: scale(1);
+      visibility: visible;
+    }
+  
+   }
+   @media screen and (width: 600px) {
+    .grid-container{
+      grid-template-columns: 1fr;
+      gap: 13rem;
+    }
+   }
+
+
+
+
+</style>
+</head>
+<body style="font-family:'nonito'sans-serif ;">
+ <header class="w-full lg:h-screen h-80" >
+  <nav class="top-0 w-full border-gray-200 px-2 sm:px-4 py-2.5 rounded ">
+    <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <div style="animation:movedown 1s linear 1; animation-delay: 1s; visibility: hidden; animation-fill-mode: forwards;" class="flex items-center">
+        <img src="logo.png" class="mr-3 h-6 sm:h-9" alt=" Logo" >
+        <span  class="self-center text-xl font-semibold whitespace-nowrap dark:text-white" >Resto</span>
+    </div>
+    <div  style="animation:movedown 1s linear 1; animation-delay: 3s; visibility: hidden; animation-fill-mode: forwards;"  class="flex md:order-2">
+      <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1">
+        <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+      
+      
+        <span class="sr-only">Search</span>
+      </button>
+      <div class="hidden relative md:block">
+        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+          <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+          <span class="sr-only">Search icon</span>
+        </div>
+        <input type="text" id="search-navbar" class="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
+      </div>
+      <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">
+        <span class="sr-only">Open menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      </button>
+    </div>
+      <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-search">
+        <div class="relative mt-3 md:hidden">
+          <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+            <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+          </div>
+          <input type="text" id="search-navbar" class="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
+        </div>
+        <ul  style="animation:movedown 1s linear 1; animation-delay: 2s; visibility: hidden; animation-fill-mode: forwards;" class="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-10xl md:font-7xl md:border-0 md: md: dark:border-gray-700">
+          <li>
+            <a href="#" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-white md:p-0 dark:text-white" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pr-4 pl-3 text-white rounded hover:bg-gray-100 md:hover:bg-trans0parent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Dishes</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pr-4 pl-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pr-4 pl-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Menu</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pr-4 pl-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Review</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pr-4 pl-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Order</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="text-center md:py-52 px-5 space-y-5 py-10 text-white">
+    <h1 class="uppercase font-bold text-3xl">delicious food</h1>
+    <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam adipisci pariatur vero fuga, nemo incidunt modi dooremque </p>
+    <button class="capitalize">order now</button>
+  </div>
+     
+ <!-- nav -->
+ </header>
+ <!-- header end -->
+
+ <!-- menu -->
+  <div   clas="container my-24 px-6 mx-auto">
+    <h2 class="text-2xl font-bold mt-6 pb- text-green-500 text-center">Our Menu</h2>
+    <h2 class="md:text-3xl text-xl font-bold mb-6 pb- text-blue-900 text-center">TODAY'S SPECIAL</h2>
+
+
+  <!-- Section: Design Block -->
+  <section  style="margin-top: 100px; "  class="mb-32 text-gray-800 text-center">
+
+    <div class="grid gap-x-6 lg:gap-x-12 md:grid-cols-3">
+      <div class="mb-24 md:mb-0">
+        <div class="rounded-lg shadow-lg h-full block bg-gray-100">
+          <div class="flex justify-center">
+            <div class="flex justify-center" style="margin-top: -75px">
+              <img style="border-radius:20% ;" src="OIP (2).jpg" class=" mx-auto shadow-lg" alt=""
+                style="width: 150px" />
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="text-lg font-bold mb-4">Marta Smith</h5>
+            <p class="mb-6">Frontend Developer</p>
+            <button>Add To  Cart</button>
+             <span style="font-size:22px; color:green;">$12.99</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-24 md:mb-0">
+        <div class="rounded-lg shadow-lg h-full block bg-gray-100">
+          <div class="flex justify-center">
+            <div class="flex justify-center" style="margin-top: -75px">
+              <img style="border-radius:20% ;" src="th (4).jpg" class="mx-auto shadow-lg" alt=""
+                style="width: 150px" />
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="text-lg font-bold mb-4">Darren Randolph</h5>
+            <p class="mb-6">Marketing expert</p>
+            <button>Add To  Cart</button>
+            <span style="font-size:22px; color:green;">$12.99</span>
+
+           
+          </div>
+        </div>
+      </div>
+
+      <div class="">
+        <div class="rounded-lg shadow-lg h-full block bg-gray-100">
+          <div class="flex justify-center">
+            <div class="flex justify-center" style="margin-top: -75px">
+              <img style="border-radius:20% ;" src="snacks.jpg" class=" mx-auto shadow-lg" alt=""
+                style="width: 150px" />
+            </div>
+          </div>
+          <div class="p-6 space-y-8">
+            <h5 class="text-lg font-bold mb-4">Ayat Black</h5>
+            <p class="mb-6">Web designer</p>
+            <button>Add To  Cart</button>
+            <span style="font-size:22px; color:green;">$12.99</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+
+</div>
+<!-- Container for demo purpose -->
+<!-- Container for demo purpose -->
+<div class="container my-24 px-6 mx-auto">
+  
+
+  <!-- Section: Design Block -->
+  <section  style="margin-top: 100px; "  class="mb-32 text-gray-800 text-center">
+
+    <div class="grid gap-x-6 lg:gap-x-12 md:grid-cols-3">
+      <div class="mb-24 md:mb-0">
+        <div class="rounded-lg shadow-lg h-full block bg-gray-100">
+          <div class="flex justify-center">
+            <div class="flex justify-center" style="margin-top: -75px">
+              <img style="border-radius:20% ;" src="OIP (2).jpg" class=" mx-auto shadow-lg" alt=""
+                style="width: 150px" />
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="text-lg font-bold mb-4">Marta Smith</h5>
+            <p class="mb-6">Frontend Developer</p>
+            <button>Add To  Cart</button>
+             <span style="font-size:22px; color:green;">$12.99</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-24 md:mb-0">
+        <div class="rounded-lg shadow-lg h-full block bg-gray-100">
+          <div class="flex justify-center">
+            <div class="flex justify-center" style="margin-top: -75px">
+              <img style="border-radius:20% ;" src="th (4).jpg" class="mx-auto shadow-lg" alt=""
+                style="width: 150px" />
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="text-lg font-bold mb-4">Darren Randolph</h5>
+            <p class="mb-6">Marketing expert</p>
+            <button>Add To  Cart</button>
+            <span style="font-size:22px; color:green;">$12.99</span>
+
+           
+          </div>
+        </div>
+      </div>
+
+      <div class="">
+        <div class="rounded-lg shadow-lg h-full block bg-gray-100">
+          <div class="flex justify-center">
+            <div class="flex justify-center" style="margin-top: -75px">
+              <img style="border-radius:20% ;" src="snacks.jpg" class=" mx-auto shadow-lg" alt=""
+                style="width: 150px" />
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="text-lg font-bold mb-4">Ayat Black</h5>
+            <p class="mb-6">Web designer</p>
+            <button>Add To  Cart</button>
+            <span style="font-size:22px; color:green;">$12.99</span>
+
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+
+</div>
+<!-- Container for demo purpose -->
+
+  
+<!-- about us section -->
+<div class="bg-gray-50 mt-12">
+  <h2 class="text-green-500 text-center text-2xl mt-8 ">About Us</h2>
+  <h1 class="text-center text-blue-700 text-3xl mb-8">WHY CHOOSE US</h1>
+  <div class="md:flex-row flex-col space-x-8 items-center pt-16 sm:px-6 lg:py-16 lg:px-8 lg:flex md:mx-20 md:space-y-0 space-y-5">
+    <img class="px-5" src="img2.jpg" alt="">
+    <div class="md:w-1/2 md:text-justify md:text-base text-sm md:space-y-0 space-y-3">
+      <h1 class="md:text-3xl text-xl" >Best Food in the County</h1>
+      <p class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero architecto necessitatibus labore ea vitae, doloribus rerum quas deserunt laudantium perspiciatis earum temporibus facere ducimus odit iste. Error voluptatem id architecto.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, praesentium. Assumenda, est! Accusamus, facere perspiciatis dignissimos sit alias distinctio odit! Dolor minima odio incidunt voluptatem suscipit quibusdam dolorum nulla aut.</p>
+      <div class="">
+        <div class=" inline-flex rounded-md shadow ">
+          <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50"> Free Delivery </a>
+        </div>
+        <div class=" inline-flex rounded-md shadow ">
+          <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50"> Easy Payments</a>
+        </div>
+        <div class=" inline-flex rounded-md shadow ">
+          <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50"> 24/7 service </a>
+        </div>
+     </div>
+       <div class="my-3">
+        <button class="text-white font-medium rounded-lg text-sm px-12 py-3 text-center mr-4 mb-2 ">Add To Cart</button>
+
+      </div>
+      
+    </div>
+  </div>
+   </div>
+  </div>
+</div>
+
+ <!-- about us end -->
+
+
+<!-- <section class="specialily">
+  <h1 class="spe-h">our speciality</h1>
+  <div class="box-con">
+    <div class="box">
+      <img class="img" src="OIP (1).jpg" alt="">
+      <div class="content">
+        <h3>testy food</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel impedit dolorem iusto sint optio, dicta, ut unde minima nihil repellendus eaque odit hic enim repudiandae illum perferendis ipsam suscipit atque?
+        </p>
+        <button style="margin-bottom: -15px;" class="text-white   font-medium rounded-lg text-sm px-12 py-2 text-center mr-4 mb-2 ">Add To Cart</button>
+         <span style="font-size:22px ;">$12.99</span>
+
+      </div>
+
+    </div>
+    <div class="box">
+      <img class="img" src="OIP (1).jpg" alt="">
+      <div class="content">
+        <h3>testy food</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel impedit dolorem iusto sint optio, dicta, ut unde minima nihil repellendus eaque odit hic enim repudiandae illum perferendis ipsam suscipit atque?
+        </p>
+      </div>
+
+    </div>
+    <div class="box">
+      <img class="img" src="OIP (1).jpg" alt="">
+      <div class="content">
+        <h3>testy food</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel impedit dolorem iusto sint optio, dicta, ut unde minima nihil repellendus eaque odit hic enim repudiandae illum perferendis ipsam suscipit atque?
+        </p>
+      </div>
+
+    </div>
+   
+   
+</section> -->
+<!-- gallery start -->
+
+<section class="gallery">
+  <h2 class="text-2xl font-bold mt-6 pb- text-green-500 text-center">Our Food</h2>
+  <h2 class="text-3xl font-bold mb-6 pb- text-blue-900 text-center">GALLERY</h2>
+
+  <div class="box-container">
+
+    <div class="box">
+      <img src="download (1).jpg" alt="">
+      <div class="content"> 
+        <h3>testy food</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni eaque, ducimus corporis magnam, cum quisquam tenetur maxime reiciendis molestias veniam rerum ratione qui</p>
+        <button>order now</button>
+      </div>
+    </div>
+    <div class="box">
+      <img src="OIP (2).jpg" alt="">
+      <div class="content"> 
+        <h3>testy food</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni eaque, ducimus corporis magnam, cum quisquam tenetur maxime reiciendis molestias veniam rerum ratione qui</p>
+        <button>order now</button>
+      </div>
+    </div>
+    <div class="box">
+      <img src="download (1).jpg" alt="">
+      <div class="content"> 
+        <h3>testy food</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni eaque, ducimus corporis magnam, cum quisquam tenetur maxime reiciendis molestias veniam rerum ratione qui</p>
+        <button>order now</button>
+      </div>
+      
+    </div>
+
+    <div class="box">
+      <img src="download (1).jpg" alt="">
+      <div class="content"> 
+        <h3>testy food</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni eaque, ducimus corporis magnam, cum quisquam tenetur maxime reiciendis molestias veniam rerum ratione qui</p>
+        <button>order now</button>
+      </div>
+      
+    </div>
+    <div class="box">
+      <img src="download (1).jpg" alt="">
+      <div class="content"> 
+        <h3>testy food</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni eaque, ducimus corporis magnam, cum quisquam tenetur maxime reiciendis molestias veniam rerum ratione qui</p>
+        <button>order now</button>
+      </div>
+    </div>
+    <div class="box">
+      <img src="download (1).jpg" alt="">
+      <div class="content"> 
+        <h3>testy food</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni eaque, ducimus corporis magnam, cum quisquam tenetur maxime reiciendis molestias veniam rerum ratione qui</p>
+        <button>order now</button>
+      </div>
+    </div>
+  
+    <div class="box">
+      <img src="download (1).jpg" alt="">
+      <div class="content"> 
+        <h3>testy food</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni eaque, ducimus corporis magnam, cum quisquam tenetur maxime reiciendis molestias veniam rerum ratione qui</p>
+        <button>order now</button>
+      </div>
+    </div>
+    <div class="box">
+      <img src="download (1).jpg" alt="">
+      <div class="content"> 
+        <h3>testy food</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni eaque, ducimus corporis magnam, cum quisquam tenetur maxime reiciendis molestias veniam rerum ratione qui</p>
+        <button>order now</button>
+      </div>
+    </div>
+    <div class="box">
+      <img src="download (1).jpg" alt="">
+      <div class="content"> 
+        <h3>testy food</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni eaque, ducimus corporis magnam, cum quisquam tenetur maxime reiciendis molestias veniam rerum ratione qui</p>
+        <button>order now</button>
+      </div>
+      
+    </div>
+  </div>
+</section>
+<!-- gallery end -->
+
+<!-- review -->
+<div class="container my-24 px-6 mx-auto">
+
+  <!-- Section: review -->
+  <section class="mb-32 text-gray-800 text-center">
+    <h2 class="text-3xl font-bold mb-32">Meet the <u class="text-blue-600">team</u></h2>
+
+    <div class="grid gap-x-6 lg:gap-x-12 md:grid-cols-3">
+      <div class="mb-24 md:mb-0">
+        <div class="rounded-lg shadow-lg h-full block bg-gray-700">
+          <div class="flex justify-center">
+            <div class="flex justify-center" style="margin-top: -75px">
+              <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" class="rounded-full mx-auto shadow-lg" alt=""
+                style="width: 150px" />
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="text-lg font-bold mb-4">Marta Smith</h5>
+            <p class="mb-6">Frontend Developer</p>
+            <ul class="list-inside flex mx-auto justify-center">
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+                </svg>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-24 md:mb-0">
+        <div class="rounded-lg shadow-lg h-full block bg-gray-700">
+          <div class="flex justify-center">
+            <div class="flex justify-center" style="margin-top: -75px">
+              <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" class="rounded-full mx-auto shadow-lg" alt=""
+                style="width: 150px" />
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="text-lg font-bold mb-4">Darren Randolph</h5>
+            <p class="mb-6">Marketing expert</p>
+            <ul class="list-inside flex mx-auto justify-center">
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+                </svg>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="">
+        <div class="rounded-lg shadow-lg h-full block bg-gray-700">
+          <div class="flex justify-center">
+            <div class="flex justify-center" style="margin-top: -75px">
+              <img src="https://mdbootstrap.com/img/new/avatars/15.jpg" class="rounded-full mx-auto shadow-lg" alt=""
+                style="width: 150px" />
+            </div>
+          </div>
+          <div class="p-6">
+            <h5 class="text-lg font-bold mb-4">Ayat Black</h5>
+            <p class="mb-6">Web designer</p>
+            <ul class="list-inside flex mx-auto justify-center">
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M256 8C119.252 8 8 119.252 8 256s111.252 248 248 248 248-111.252 248-248S392.748 8 256 8zm163.97 114.366c29.503 36.046 47.369 81.957 47.835 131.955-6.984-1.477-77.018-15.682-147.502-6.818-5.752-14.041-11.181-26.393-18.617-41.614 78.321-31.977 113.818-77.482 118.284-83.523zM396.421 97.87c-3.81 5.427-35.697 48.286-111.021 76.519-34.712-63.776-73.185-116.168-79.04-124.008 67.176-16.193 137.966 1.27 190.061 47.489zm-230.48-33.25c5.585 7.659 43.438 60.116 78.537 122.509-99.087 26.313-186.36 25.934-195.834 25.809C62.38 147.205 106.678 92.573 165.941 64.62zM44.17 256.323c0-2.166.043-4.322.108-6.473 9.268.19 111.92 1.513 217.706-30.146 6.064 11.868 11.857 23.915 17.174 35.949-76.599 21.575-146.194 83.527-180.531 142.306C64.794 360.405 44.17 310.73 44.17 256.323zm81.807 167.113c22.127-45.233 82.178-103.622 167.579-132.756 29.74 77.283 42.039 142.053 45.189 160.638-68.112 29.013-150.015 21.053-212.768-27.882zm248.38 8.489c-2.171-12.886-13.446-74.897-41.152-151.033 66.38-10.626 124.7 6.768 131.947 9.055-9.442 58.941-43.273 109.844-90.795 141.978z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+                </svg>
+              </a>
+              <a href="#!" class="px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-4 h-4 text-blue-600">
+                  <path fill="currentColor"
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                </svg>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: review end -->
+
+</div>
+<!--review end -->
+
+<!-- order -->
+<section class="order">
+  <h1>Order <span>Now</span> </h1>
+  <div class="row">
+    <img src="download (2).jpg" alt="">
+    <form>
+      <div class="grid gap-6 mb-6 md:grid-cols-2">
+          <div>
+              <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">First name</label>
+              <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter your name" required="">
+          </div>
+          <div>
+              <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your order</label>
+              <input type="text" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter food name" required="enter your order">
+          </div>
+           
+          <div>
+              <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Phone number</label>
+              <input type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required="">
+          </div>
+          <div>
+            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email address</label>
+            <input type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required="">
+        </div>
+        <div>
+          <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Additional food</label>
+          <input type="text" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="extra food"  required="">
+      </div>
+      <div>
+        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">How much</label>
+        <input type="text" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="how many order" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required="">
+    </div>
+   
+       
+      </div> 
+      <div class="mb-6">
+          <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your <address></address></label>
+          <input type="text" id="address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter yuor address" required="">
+      </div> 
+      <div class="mb-6">
+          <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your message</label>
+          <input type="password" id="confirm_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter your message" required="">
+      </div> 
+      <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark dark:focus:ring-blue-800">Submit</button>
+    </form>
+    
+    
+  </div>
+</section>
+
+
+
+
+
+
+  
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+      
+</body>
+</html>
