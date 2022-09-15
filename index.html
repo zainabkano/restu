@@ -49,6 +49,11 @@
       background-size: cover;
       background-position: center;
      }
+    .gallery {
+      margin-top: 80px;
+    }
+
+
      
     
     .gallery .box-container{
@@ -109,7 +114,8 @@
    .gallery .box-container .box:hover .content{
     top:0 ;
     opacity: 0.8;
-    filter: alpha(opacity=100); 
+    filter: alpha(opacity=100);
+    transition: 400ms; 
 
 
    }
@@ -118,29 +124,31 @@
         display: grid;
         gap: 10px;
         flex-wrap: wrap;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr); 
         width: 100%;
         align-items: center;
-      } 
+ 
+        
+    } 
       .banner-lg{
         height: 460px;
         grid-column: 1/3;
-        grid-row: 1/3;
+        grid-row: 1/3; 
       }
       .banner-sm{
         height: 200px;
       }
       .banner-md{
         height: 270px;
-        grid-column: 3/5;
+         grid-column: 3/5;
         grid-row: 2/3;
-        height: 220px;
+        height: 220px; 
       }
       .banner-card{
        position: relative;
        height: 100%;
        overflow: hidden;
-       background:gray;
+      
         
 
       }
@@ -149,10 +157,11 @@
         height: 100%;
         object-fit: cover;
         transform: scale(1);
-        transition: width 2s;   
+        transition: 1s;
+        border-radius: 40px;   
     
       }
-      .banner-card:is(:hover, :focus-within) img {transform: scale(1.5s)}
+      .banner-card:is(:hover, :focus-within) img {transform: scale(1.5)}
 
       .banner-item-container{
         position: absolute;
@@ -177,6 +186,7 @@
     text-align: center;
     font: bolder;
     width: 600;
+    margin-bottom: 20px;
     
    }
    .order h1 span{
@@ -231,44 +241,66 @@
     }
   
    }
-   @media screen and (width: 700px) {
-    .grid-container{
-      grid-template-columns: 1fr;
-      gap: 13rem;
-    }
+
+
+
+
+   /* @media  screen and (max-width: 600px) {
+    
     .banner-list{
-      gap: 10px;
-      width: 80%;
-      display: block;
-      
-      }
+       display: grid;
+       gap: 10px;
+       background-color: red;
+      } 
       .banner-lg{
-        height: 400px;
-        width: auto;
+        height: 430px;
       }
-
+      .banner-sm{
+        height: 200px;
+      }
       .banner-md{
-        
-        height: 220px;
-      }
-   
+        height: 240px;
+     }  
 
-   }
 
+  
+
+   } */
+
+
+@media screen and (max-width: 600px) {
+  .banner-list {
+    display: block;
+    width: 100%;
+  }
+  .banner-lg{
+    height: 430px;
+    margin-bottom: 20px;
+ }
+  .banner-sm{
+    height: 200px;
+    margin-bottom: 20px;
+ }
+  .banner-md{
+     height: 240px;
+     margin-bottom: 20px;
+ }  
+
+}
 
 
 
 </style>
 </head>
 <body style="font-family:'nonito'sans-serif ;">
- <header class="w-full lg:h-screen h-80" >
+ <header class="w-full lg:h-screen h-90" >
   <nav class="top-0 w-full border-gray-200 px-2 sm:px-4 py-2.5 rounded ">
     <div class="container flex flex-wrap justify-between items-center mx-auto">
     <div style="animation:movedown 1s linear 1; animation-delay: 1s; visibility: hidden; animation-fill-mode: forwards;" class="flex items-center">
         <img src="logo.png" class="mr-3 h-6 sm:h-9" alt=" Logo" >
         <span  class="self-center text-xl font-semibold whitespace-nowrap dark:text-white" >Resto</span>
     </div>
-    <div  style="animation:movedown 1s linear 1; animation-delay: 3s; visibility: hidden; animation-fill-mode: forwards;"  class="flex md:order-2">
+    <div movedownmovedown  class="flex md:order-2">
       <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1">
         <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
       
@@ -294,33 +326,37 @@
           </div>
           <input type="text" id="search-navbar" class="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
         </div>
-        <ul  style="animation:movedown 1s linear 1; animation-delay: 2s; visibility: hidden; animation-fill-mode: forwards;" class="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 bg-white ms:bg-blue-500 md:text-10xl md:font-7xl text-blue-500 md:border-0 md: md: dark:border-gray-700">
+
+        <ul  style="animation:movedown 1s linear 1; animation-delay: 2s; visibility: hidden; animation-fill-mode: forwards;" class="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0  bg-gray-300 ms:bg-blue-500 md:text-2xl md:font-7xl text-blue-500 md:border-0 md: md: dark:border-gray-700">
           <li>
-            <a href="#" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-white md:p-0 dark:text-white" aria-current="page">Home</a>
+            <a href="#" class="block py-2 pr-4 pl-3  text-blue-500 bg-blue-700 rounded md:bg-transparent md:text-white md:p-0 dark:text-white" aria-current="page">Home</a>
           </li>
           <li>
-            <a href="#" class="block py-2 pr-4 pl-3 text-blue-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Dishes</a>
+            <a href="#" class="block py-2 pr-4 pl-3 text-blue-500 rounded hover:bg-green-400 md:hover:bg-green-400 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Sepecaility</a>
           </li>
           <li>
-            <a href="#" class="block py-2 pr-4 pl-3 text-blue-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+            <a href="#" class="block py-2 pr-4 pl-3 text-blue-500 rounded hover:bg-green-400 md:hover:bg-green-400 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
           </li>
           <li>
-            <a href="#" class="block py-2 pr-4 pl-3 text-blue-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Menu</a>
+            <a href="#" class="block py-2 pr-4 pl-3 text-blue-500 rounded hover:bg-green-400 md:hover:bg-green-400 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Menu</a>
           </li>
           <li>
-            <a href="#" class="block py-2 pr-4 pl-3 text-blue-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Review</a>
+            <a href="#" class="block py-2 pr-4 pl-3 text-blue-500 rounded hover:bg-green-400 md:hover:bg-green-400 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Populer</a>
           </li>
           <li>
-            <a href="#" class="block py-2 pr-4 pl-3 text-blue-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Order</a>
+            <a href="#" class="block py-2 pr-4 pl-3 text-blue-500 rounded hover:bg-green-400 md:hover:bg-green-400 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Review</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pr-4 pl-3 text-blue-500 rounded hover:bg-gray-100 md:hover:bg-green-400 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Order</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="text-center text-white px-5 md:mt-28 space-y-5 py-10 ">
+  <div  style="animation:zoomin 1s linear 1; animation-delay: 4s; visibility: hidden; animation-fill-mode: forwards;" class="text-center text-white px-5 md:mt-28 space-y-5 py-10 ">
     <h1 class="uppercase font-bold lg:text-5xl text-3xl">supper delicious food in towm!</h1>
     <p class=" capitalize  md:text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam adipisci pariatur vero fuga, nemo incidunt modi dooremque </p>
-    <button class="capitalize mb-16">order now</button>
+    <button  style="animation:moveright 1s linear 1; animation-delay: 5s; visibility: hidden; animation-fill-mode: forwards;" class="capitalize mb-16">order now</button>
   </div>
      
  <!-- nav -->
@@ -328,11 +364,11 @@
  <!-- header end -->
 
  <!-- menu -->
-  <div   clas="container my-24 px-6 mx-auto">
+  <div   clas="container my-24 px-6 mx-auto mt-24">
     <h2 class="text-2xl font-bold mt-6 pb- text-green-500 text-center">Our Menu</h2>
     <h2 class="md:text-3xl text-xl font-bold mb-6 pb- text-blue-900 text-center">TODAY'S SPECIAL</h2>
 
-
+ <div class="container my-24 px-6 mx-auto">
   <!-- Section: Design Block -->
   <section  style="margin-top: 100px; "  class="mb-32 text-gray-800 text-center">
  
@@ -373,7 +409,7 @@
         </div>
       </div>
 
-      <div class="">
+      <div class="mb-24 md:mb-0"  data-aos="fade-right" data-aos-duration="2000">
         <div class="rounded-lg shadow-lg h-full block bg-gray-100">
           <div class="flex justify-center">
             <div class="flex justify-center" style="margin-top: -75px">
@@ -402,7 +438,7 @@
   <section  style="margin-top: 100px; "  class="mb-32 text-gray-800 text-center">
 
     <div class="grid gap-x-6 lg:gap-x-12 md:grid-cols-3">
-      <div class="mb-24 md:mb-0">
+      <div class="mb-24 md:mb-0"  data-aos="fade-left" data-aos-duration="2000">
         <div class="rounded-lg shadow-lg h-full block bg-gray-100">
           <div class="flex justify-center">
             <div class="flex justify-center" style="margin-top: -75px">
@@ -419,7 +455,7 @@
         </div>
       </div>
 
-      <div class="mb-24 md:mb-0">
+      <div class="mb-24 md:mb-0" data-aos="fade-left" data-aos-duration="2000">
         <div class="rounded-lg shadow-lg h-full block bg-gray-100">
           <div class="flex justify-center">
             <div class="flex justify-center" style="margin-top: -75px">
@@ -438,7 +474,7 @@
         </div>
       </div>
 
-      <div class="">
+      <div class="mb-24 md:mb-0" data-aos="fade-left" data-aos-duration="2000">
         <div class="rounded-lg shadow-lg h-full block bg-gray-100">
           <div class="flex justify-center">
             <div class="flex justify-center" style="margin-top: -75px">
@@ -499,42 +535,6 @@
  <!-- about us end -->
 
 
-<!-- <section class="specialily">
-  <h1 class="spe-h">our speciality</h1>
-  <div class="box-con">
-    <div class="box">
-      <img class="img" src="OIP (1).jpg" alt="">
-      <div class="content">
-        <h3>testy food</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel impedit dolorem iusto sint optio, dicta, ut unde minima nihil repellendus eaque odit hic enim repudiandae illum perferendis ipsam suscipit atque?
-        </p>
-        <button style="margin-bottom: -15px;" class="text-white   font-medium rounded-lg text-sm px-12 py-2 text-center mr-4 mb-2 ">Add To Cart</button>
-         <span style="font-size:22px ;">$12.99</span>
-
-      </div>
-
-    </div>
-    <div class="box">
-      <img class="img" src="OIP (1).jpg" alt="">
-      <div class="content">
-        <h3>testy food</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel impedit dolorem iusto sint optio, dicta, ut unde minima nihil repellendus eaque odit hic enim repudiandae illum perferendis ipsam suscipit atque?
-        </p>
-      </div>
-
-    </div>
-    <div class="box">
-      <img class="img" src="OIP (1).jpg" alt="">
-      <div class="content">
-        <h3>testy food</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel impedit dolorem iusto sint optio, dicta, ut unde minima nihil repellendus eaque odit hic enim repudiandae illum perferendis ipsam suscipit atque?
-        </p>
-      </div>
-
-    </div>
-   
-   
-</section> -->
 <!-- gallery start -->
 
 <section class="gallery">
@@ -579,7 +579,7 @@
       
     </div>
     <div class="box">
-      <img src="bread.jpg" alt="">
+      <img src="fi.webp" alt="">
       <div class="content"> 
         <h3>testy food</h3>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni eaque, ducimus corporis magnam, cum quisquam tenetur maxime reiciendis molestias veniam rerum ratione qui</p>
@@ -604,7 +604,7 @@
       </div>
     </div>
     <div class="box">
-      <img src="tuyo.jpg" alt="">
+      <img src="yam.webp" alt="">
       <div class="content"> 
         <h3>testy food</h3>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni eaque, ducimus corporis magnam, cum quisquam tenetur maxime reiciendis molestias veniam rerum ratione qui</p>
@@ -612,7 +612,7 @@
       </div>
     </div>
     <div class="box">
-      <img src="download (1).jpg" alt="">
+      <img src="fast3.jpg" alt="">
       <div class="content"> 
         <h3>testy food</h3>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni eaque, ducimus corporis magnam, cum quisquam tenetur maxime reiciendis molestias veniam rerum ratione qui</p>
@@ -623,6 +623,71 @@
   </div>
 </section>
 <!-- gallery end -->
+
+<!-- pupoler food start -->
+<section>
+  <h2 class="text-2xl font-bold mt-20 pb- text-green-500 text-center">Our Menu</h2>
+  <h2 class="md:text-3xl text-xl font-bold mb-6 pb- text-blue-900 text-center">PUPOLER FOOD</h2>
+
+  <div class=" md:mx-14 gap-10">
+    <ul class="banner-list">
+      <li class="banner-item banner-lg">
+        <div class="banner-card">
+          <img src="pizza.jpg" alt="" width="550" height="450">
+          <div class="banner-item-container">
+            <p>50% off Now!</p>
+            <h3>Discount for Delicious Testy food!</h3>
+            <p>Sele off 50% onty this week</p>
+            <button>order now</button>
+          </div>
+        </div>
+      </li>
+      <li class="banner-item banner-sm">
+        <div class="banner-card">
+          <img src="drink1.jpg" alt="" width="550" height="465">
+          <div class="banner-item-container">
+            <p>50% off Now!</p>
+            <h3>Discount for Delicious Testy food!</h3>
+            <p>Sele off 50% onty this week</p>
+            <button>order now</button>
+          </div>
+        </div>
+      </li>
+      <li class="banner-item banner-sm">
+        <div class="banner-card">
+          <img src="Jollof-Rice.webp" alt="" width="550" height="450">
+          <div class="banner-item-container">
+            <p>50% off Now!</p>
+            <h3>Discount for Delicious Testy food!</h3>
+            <p>Sele off 50% onty this week</p>
+            <button>order now</button>
+          </div>
+        </div>
+      </li>
+     
+      <li class="banner-item banner-md">
+        <div class="banner-card">
+          <img src="sou.jpg" alt="" width="550" height="220">
+          <div class="banner-item-container">
+            <p>50% off Now!</p>
+            <h3>Discount for Delicious Testy food!</h3>
+            <p>Sele off 50% onty this week</p>
+            <button>order now</button>
+          </div>
+        </div>
+      </li>
+
+
+
+
+
+      
+    </ul>
+  </div>
+</section>
+
+<!-- pupoler food end -->
+
 
 <!-- review -->
 <div class="container my-24 px-6 mx-auto">
@@ -688,67 +753,63 @@
 
 <!--review end -->
 
-<section>
-  <div class="container">
-    <ul class="banner-list">
-      <li class="banner-item banner-lg">
-        <div class="banner-card">
-          <img src="pizza.jpg" alt="" width="550" height="450">
-          <div class="banner-item-container">
-            <p>50% off Now!</p>
-            <h3>Discount for Delicious Testy food!</h3>
-            <p>Sele off 50% onty this week</p>
-            <button>order now</button>
+
+<!-- Container for demo purpose -->
+<div class="container my-24 px-6 mx-auto">
+
+  <!-- Section: Design Block -->
+  <section class="mb-32 background-radial-gradient">
+    <style>
+      .background-radial-gradient {
+        background-color: hsl(218, 41%, 15%);
+        background-image: radial-gradient(
+          650px circle at 0% 0%,
+          hsl(218, 41%, 35%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(218, 23%, 35%) 80%,
+          transparent 100%
+        ),
+        radial-gradient(
+          1250px circle at 100% 100%,
+          hsl(218, 22%, 29%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(217, 24%, 30%) 80%,
+          transparent 100%
+        );
+      }
+    </style>
+
+    <div class="px-6 py-12 md:px-12 text-center lg:text-left">
+      <div class="container mx-auto xl:px-32">
+        <div class="grid lg:grid-cols-2 gap-12 flex items-center">
+          <div class="mt-12 lg:mt-0">
+            <h1 class="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12" style="color: hsl(218, 81%, 95%);">Our Foodie Have Excellent of <br /><span style="color: hsl(218, 81%, 75%);"> Quality Burgers!</span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, quae? Eligendi animi enim cumque unde atque!</p>
+            <!-- <button class="inline-block px-7 py-3 mr-2 bg-gray-200 text-white font-medium text-sm leading-snug rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">order now</button> -->
+            <button class="inline-block px-7  py-3 bg-gray-400 text-white font-medium text-sm leading-snug  rounded focus:outline-none focus:ring-0 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">order now</button>
+          </div>
+          <div class="mb-12 lg:mb-0 ">
+            <img
+              src="bug.jpg"
+              class="w-full rounded-lg shadow-lg"
+              alt=""
+            />
           </div>
         </div>
-      </li>
-      <li class="banner-item banner-sm">
-        <div class="banner-card">
-          <img src="pizza1.jpg" alt="" width="550" height="465">
-          <div class="banner-item-container">
-            <p>50% off Now!</p>
-            <h3>Discount for Delicious Testy food!</h3>
-            <p>Sele off 50% onty this week</p>
-            <button>order now</button>
-          </div>
-        </div>
-      </li>
-      <li class="banner-item banner-sm">
-        <div class="banner-card">
-          <img src="rice2.jpg" alt="" width="550" height="450">
-          <div class="banner-item-container">
-            <p>50% off Now!</p>
-            <h3>Discount for Delicious Testy food!</h3>
-            <p>Sele off 50% onty this week</p>
-            <button>order now</button>
-          </div>
-        </div>
-      </li>
-     
-      <li class="banner-item banner-md">
-        <div class="banner-card">
-          <img src="OIP (1).jpg" alt="" width="550" height="220">
-          <div class="banner-item-container">
-            <p>50% off Now!</p>
-            <h3>Discount for Delicious Testy food!</h3>
-            <p>Sele off 50% onty this week</p>
-            <button>order now</button>
-          </div>
-        </div>
-      </li>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
 
+</div>
+<!-- Container for demo purpose -->
 
-
-
-
-      
-    </ul>
-  </div>
-</section>
 
 <!-- order start -->
-<section class="order">
-  <h1>Order <span>Now</span> </h1>
+<section style="margin-top:60px " class="order">
+  <h1 class="font-bold">Order <span class="">Now</span> </h1>
   <div class="row">
     <img style="height: 600px;" class="" src="order2.webp" alt="">
     <form>
@@ -789,7 +850,7 @@
           <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your message</label>
           <input type="password" id="confirm_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="enter your message" required="">
       </div> 
-      <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark dark:focus:ring-blue-800">Submit</button>
+      <button type="submit" class="text-white bg-blue-700  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark dark:focus:ring-blue-800">Order Now</button>
     </form>
     
     
@@ -798,63 +859,11 @@
 <!-- order end -->
 
 
-<!-- Container for demo purpose -->
-<div class="container my-24 px-6 mx-auto">
-
-  <!-- Section: Design Block -->
-  <section class="mb-32 background-radial-gradient">
-    <style>
-      .background-radial-gradient {
-        background-color: hsl(218, 41%, 15%);
-        background-image: radial-gradient(
-          650px circle at 0% 0%,
-          hsl(218, 41%, 35%) 15%,
-          hsl(218, 41%, 30%) 35%,
-          hsl(218, 41%, 20%) 75%,
-          hsl(218, 23%, 35%) 80%,
-          transparent 100%
-        ),
-        radial-gradient(
-          1250px circle at 100% 100%,
-          hsl(218, 22%, 29%) 15%,
-          hsl(218, 41%, 30%) 35%,
-          hsl(218, 41%, 20%) 75%,
-          hsl(217, 24%, 30%) 80%,
-          transparent 100%
-        );
-      }
-    </style>
-
-    <div class="px-6 py-12 md:px-12 text-center lg:text-left">
-      <div class="container mx-auto xl:px-32">
-        <div class="grid lg:grid-cols-2 gap-12 flex items-center">
-          <div class="mt-12 lg:mt-0">
-            <h1 class="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12" style="color: hsl(218, 81%, 95%);">Our Foodie Have Excellent of <br /><span style="color: hsl(218, 81%, 75%);"> Quality Burgers!</span></h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, quae? Eligendi animi enim cumque unde atque!</p>
-            <!-- <button class="inline-block px-7 py-3 mr-2 bg-gray-200 text-white font-medium text-sm leading-snug rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">order now</button> -->
-            <button class="inline-block px-7  py-3 bg-gray-400 text-white font-medium text-sm leading-snug  rounded focus:outline-none focus:ring-0 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">order now</button>
-          </div>
-          <div class="mb-12 lg:mb-0">
-            <img
-              src="OIP (5).jpg"
-              class="w-full rounded-lg shadow-lg"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Section: Design Block -->
-
-</div>
-<!-- Container for demo purpose -->
-
 
 <!-- footer start -->
 
 
-<footer class="text-center bg-gray-900 text-white">
+<footer class="text-center bg-gray-900 text-white mt-24">
   <div class="container px-6 pt-6">
     <div class="flex justify-center mb-6">
       <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
@@ -962,8 +971,8 @@
   </div>
 
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2021 Copyright:
-    <a class="text-whitehite" href="https://tailwind-elements.com/">Tailwind Elements</a>
+    © 2022 Copyright:
+    <a class="text-whitehite" href="https://tailwind-elements.com/">Zee-Restu</a>
   </div>
 </footer> 
 <!-- footer end -->
